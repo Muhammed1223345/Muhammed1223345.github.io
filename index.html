@@ -1,781 +1,309 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Textilpflege Fix & Fertig – Hamburg</title>
-  <meta name="description" content="Textilpflege in Hamburg – Reinigung, Bügelservice, Schneiderei, Gastro/Hotelwäsche. Seit 25 Jahren zuverlässig." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Body-Schrift: ähnlich wie dein Screenshot (clean & neutral) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<title>Textilpflege Fix & Fertig – Hamburg</title>
+<meta name="description" content="Textilpflege Fix & Fertig in Hamburg. Seit 25 Jahren Reinigung, Wäscherei & Schneiderei. Schnell, zuverlässig & persönlich.">
 
-  <!-- Scroll-Animationen -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #ffffff;
-      --text: #0b0f18;
-      --muted: rgba(11,15,24,.70);
-      --line: rgba(11,15,24,.10);
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#0b0f18;
+  --muted:rgba(11,15,24,.65);
+  --line:rgba(11,15,24,.10);
+  --brand:#0ea5e9;
+}
 
-      --brand: #0ea5e9;   /* hellblau Akzent (nicht “blau dominant”) */
-      --brand2:#22c55e;   /* grün Akzent optional */
-      --soft: #f6f7f9;
-      --soft2:#fbfcfe;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Source Sans 3",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-      --shadow: 0 18px 55px rgba(0,0,0,.08);
-      --radius: 18px;
-      --max: 1120px;
-    }
+a{text-decoration:none;color:inherit}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: linear-gradient(180deg, #fff 0%, #fff 60%, #f7f9fb 100%);
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding: 22px 18px 80px;}
+.container{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 20px;
+}
 
-    /* Typo: “Boss-Schrift” für Headlines */
-    .boss{font-family:"Montserrat", system-ui, sans-serif; font-weight:900; letter-spacing:-.6px}
-    .h1{font-size: clamp(34px, 4.4vw, 56px); line-height:1.02; margin: 14px 0 10px}
-    .h2{font-size: 26px; margin:0 0 10px; letter-spacing:-.4px}
-    .p{margin:0; color:var(--muted); line-height:1.65}
+/* HEADER */
 
-    /* NAV */
-    .nav{
-      position: sticky; top: 12px; z-index: 50;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding: 12px 14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.06);
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight: 800;
-    }
-    .logoBox{
-      width:38px;height:38px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(34,197,94,.14));
-      border:1px solid rgba(11,15,24,.10);
-      display:grid; place-items:center;
-      overflow:hidden;
-    }
-    .logoBox img{width:100%; height:100%; object-fit:cover; display:none;} /* wenn du Logo einfügst: display:block */
-    .links{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
-    .links a{
-      padding: 10px 12px;
-      border-radius: 12px;
-      color: rgba(11,15,24,.72);
-      transition:.2s;
-      font-weight:600;
-    }
-    .links a:hover{background: var(--soft); color: var(--text)}
-    @media(max-width: 900px){
-      .links{display:none}
-    }
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.95);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
 
-    /* Buttons */
-    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--soft2);
-      font-weight: 700;
-      transition:.2s;
-    }
-    .btn:hover{transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.06)}
-    .btn.primary{
-      border: none;
-      background: linear-gradient(135deg, var(--brand), rgba(34,197,94,.85));
-      color:white;
-      box-shadow: 0 18px 40px rgba(14,165,233,.20);
-    }
+.topbarInner{
+  max-width:1120px;
+  margin:0 auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    /* HERO */
-    .hero{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-    @media(max-width: 900px){ .hero{grid-template-columns:1fr} }
-    .card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-    .heroLeft{padding: 28px;}
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      color: rgba(11,15,24,.72);
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-    }
-    .heroRight{padding: 14px; display:flex; flex-direction:column; gap:12px}
-    .heroMedia{
-      position:relative;
-      min-height: 260px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      overflow:hidden;
-      background:
-        radial-gradient(500px 260px at 20% 10%, rgba(14,165,233,.18), transparent 60%),
-        radial-gradient(420px 240px at 85% 15%, rgba(34,197,94,.12), transparent 60%),
-        linear-gradient(135deg, #f7fbff, #ffffff);
-    }
-    .heroMedia::after{
-      content:"Hier kommt später ein echtes Foto vom Laden / Team rein";
-      position:absolute; top:14px; left:14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-      border-radius: 12px;
-      font-size: 13px;
-      color: rgba(11,15,24,.70);
-    }
-    .stats{
-      display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;
-    }
-    @media(max-width: 520px){ .stats{grid-template-columns:1fr} }
-    .stat{
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: var(--soft2);
-    }
-    .stat .num{
-      font-family:"Montserrat", system-ui, sans-serif;
-      font-weight: 900;
-      font-size: 22px;
-      color:#000;
-      letter-spacing:-.4px;
-    }
-    .stat .lbl{margin-top:2px; font-size: 13px; color: rgba(11,15,24,.70)}
+.brand{
+  font-family:"Montserrat";
+  font-weight:900;
+  font-size:18px;
+}
 
-    /* Section Layout */
-    .section{margin-top: 18px}
-    .section .head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      margin-bottom: 10px;
-    }
+.topnav{
+  display:flex;
+  gap:16px;
+  font-weight:700;
+}
 
-    /* Service Cards (Flexibilität/Qualität/Kundenorientierung) */
-    .three{
-      display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;
-    }
-    @media(max-width: 900px){ .three{grid-template-columns:1fr} }
-    .serviceCard{
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: 0 12px 30px rgba(0,0,0,.05);
-    }
-    .serviceCard h3{
-      margin:0 0 8px;
-      font-family:"Montserrat", system-ui, sans-serif;
-      font-weight: 900;
-      letter-spacing:-.3px;
-      font-size: 18px;
-      color:#000;
-    }
+.topnav a:hover{
+  color:#000;
+}
 
-    /* Geschäftsbereiche (Bild links, Liste rechts) */
-    .fields{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-      align-items: stretch;
-    }
-    @media(max-width: 900px){ .fields{grid-template-columns:1fr} }
-    .fieldImg{
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(11,15,24,.05), rgba(11,15,24,.02));
-      overflow:hidden;
-      min-height: 260px;
-      position:relative;
-    }
-    .fieldImg::after{
-      content:"Bild (z.B. Waschmaschine / Laden) – später ersetzen";
-      position:absolute; top:14px; left:14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-      border-radius: 12px;
-      font-size: 13px;
-      color: rgba(11,15,24,.70);
-    }
-    .fieldList{
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: 0 12px 30px rgba(0,0,0,.05);
-    }
-    .bullets{margin-top:10px; display:grid; gap:10px}
-    .bullet{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(11,15,24,.08);
-      background: var(--soft2);
-      transition:.2s;
-    }
-    .bullet:hover{transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.06)}
-    .bullet span{color: rgba(11,15,24,.78); font-weight:700}
-    .bullet i{
-      width:26px;height:26px;border-radius:10px;
-      display:grid; place-items:center;
-      background: rgba(14,165,233,.14);
-      border:1px solid rgba(11,15,24,.08);
-      font-style:normal;
-    }
+.navCta{
+  background:linear-gradient(135deg,var(--brand),#22c55e);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:12px;
+}
 
-    /* Preise (Dropdown + PDF) – nicht riesig in der Mitte */
-    .pricesWrap{
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-    .pricesHead{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(11,15,24,.08);
-      margin-bottom: 12px;
-    }
-    .priceBtn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(11,15,24,.10);
-      background: var(--soft);
-      font-weight: 800;
-    }
-    .accordion{display:grid; gap:10px}
-    .accItem{
-      border:1px solid rgba(11,15,24,.10);
-      border-radius: 16px;
-      overflow:hidden;
-      background: var(--soft2);
-    }
-    .accItem summary{
-      cursor:pointer; list-style:none;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      padding: 14px 14px;
-      font-weight: 900;
-      font-family:"Montserrat", system-ui, sans-serif;
-      color:#000;
-    }
-    .accItem summary::-webkit-details-marker{display:none}
-    .accHint{font-family:"Source Sans 3"; font-weight:700; color: rgba(11,15,24,.60); font-size: 13px}
-    .accBody{padding: 0 14px 14px; display:grid; gap:8px}
-    .row{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border:1px solid rgba(11,15,24,.08);
-      background:#fff;
-      color: rgba(11,15,24,.70);
-    }
-    /* Genau das, was du willst: Preis fett & größer, Name normal */
-    .row .label{font-weight:600}
-    .row .price{
-      font-family:"Montserrat", system-ui, sans-serif;
-      font-weight: 900;
-      color:#000;
-      font-size: 16px;
-      letter-spacing:-.2px;
-    }
+/* HERO */
 
-    /* Bewertungen (Cards + einfacher Slider) */
-    .reviews{
-      overflow:hidden;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background:#fff;
-      box-shadow: var(--shadow);
-    }
-    .reviewsTop{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      padding: 18px; border-bottom: 1px solid rgba(11,15,24,.08);
-      background: linear-gradient(180deg, #fff, #fbfcfe);
-    }
-    .stars{color:#f5b301; letter-spacing:1px}
-    .revRow{
-      display:flex; gap:12px;
-      padding: 16px;
-      overflow:auto;
-      scroll-snap-type:x mandatory;
-    }
-    .revCard{
-      min-width: 280px;
-      scroll-snap-align:start;
-      border: 1px solid rgba(11,15,24,.10);
-      border-radius: 16px;
-      background: var(--soft2);
-      padding: 14px;
-    }
-    .revName{font-weight:900; font-family:"Montserrat"; color:#000}
-    .revText{margin-top:8px; color: rgba(11,15,24,.72); line-height:1.55}
+.hero{
+  padding:70px 0 50px;
+}
 
-    /* Standort + Map */
-    .location{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-      align-items: stretch;
-    }
-    @media(max-width: 900px){ .location{grid-template-columns:1fr} }
-    .mapBox{
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      overflow:hidden;
-      min-height: 320px;
-      background: var(--soft);
-    }
-    .locInfo{
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background:#fff;
-      box-shadow: 0 12px 30px rgba(0,0,0,.05);
-    }
-    .contactGrid{margin-top:10px; display:grid; gap:10px}
-    .cItem{
-      display:flex; align-items:flex-start; gap:10px;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(11,15,24,.08);
-      background: var(--soft2);
-    }
-    .cIcon{
-      width:34px;height:34px;border-radius:14px;
-      display:grid; place-items:center;
-      background: rgba(14,165,233,.14);
-      border: 1px solid rgba(11,15,24,.08);
-      flex:0 0 auto;
-    }
-    .small{font-size:13px; color: rgba(11,15,24,.65)}
+.heroGrid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
+}
 
-    /* Footer */
-    .footer{
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(11,15,24,.10);
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      color: rgba(11,15,24,.70);
-      font-size: 13px;
-    }
-    .footer a{text-decoration: underline; text-decoration-color: rgba(11,15,24,.25)}
+.hero h1{
+  font-family:"Montserrat";
+  font-weight:900;
+  font-size:42px;
+  margin:0 0 10px;
+}
 
-    /* Floating Call Button (optional nice) */
-    .floatCall{
-      position:fixed; right:16px; bottom:16px; z-index:999;
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: #0b0f18;
-      color: #fff;
-      font-weight: 900;
-      font-family:"Montserrat";
-      box-shadow: 0 18px 50px rgba(0,0,0,.25);
-    }
-  </style>
+.hero p{
+  color:var(--muted);
+  font-size:18px;
+  margin-bottom:25px;
+}
+
+.heroBtns{
+  display:flex;
+  gap:12px;
+}
+
+.btnPrimary{
+  background:linear-gradient(135deg,var(--brand),#22c55e);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:14px;
+  font-weight:800;
+}
+
+.btnSecondary{
+  border:1px solid var(--line);
+  padding:12px 20px;
+  border-radius:14px;
+  font-weight:700;
+}
+
+.heroImage{
+  height:280px;
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(34,197,94,.15));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:var(--muted);
+}
+
+/* QUICKBAR */
+
+.quickbar{
+  margin-top:20px;
+}
+
+.quickbarInner{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.qItem{
+  flex:1;
+}
+
+.qTitle{
+  font-family:"Montserrat";
+  font-weight:900;
+  font-size:14px;
+}
+
+.qText{
+  color:var(--muted);
+  font-weight:700;
+  font-size:14px;
+}
+
+/* SECTION */
+
+.section{
+  padding:80px 0;
+}
+
+.section h2{
+  font-family:"Montserrat";
+  font-weight:900;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px;
+}
+
+.card h3{
+  font-family:"Montserrat";
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:80px;
+  padding:30px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:14px;
+}
+
+@media(max-width:900px){
+  .heroGrid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .quickbarInner{flex-direction:column;align-items:flex-start}
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <header class="nav" data-aos="fade-down" data-aos-duration="700">
-      <div class="brand">
-        <div class="logoBox" title="Logo">
-          <!-- Wenn du Logo hochgeladen hast (logo.png): <img src="logo.png" alt="Logo" style="display:block;"> -->
-        </div>
-        <div>
-          <div class="boss" style="font-weight:900; letter-spacing:-.4px;">Textilpflege Fix &amp; Fertig</div>
-          <div style="font-size:13px; color:rgba(11,15,24,.62); font-weight:700;">Hamburg • seit 25 Jahren</div>
-        </div>
+<header class="topbar">
+  <div class="topbarInner">
+    <div class="brand">Textilpflege Fix & Fertig</div>
+    <nav class="topnav">
+      <a href="#service">Service</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="./preisliste/">Preisliste</a>
+      <a href="#kontakt" class="navCta">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container heroGrid">
+    <div>
+      <h1>Textilpflege & Wäscherei in Hamburg</h1>
+      <p>Seit <b>25 Jahren</b> reinigen wir Hemden, Anzüge, Jacken, Abendkleider sowie Hotel- & Gastro-Wäsche – schnell, zuverlässig und persönlich.</p>
+
+      <div class="heroBtns">
+        <a href="#kontakt" class="btnPrimary">Standort & Route</a>
+        <a href="./preisliste/" class="btnSecondary">Preisliste ansehen</a>
       </div>
+    </div>
 
-      <nav class="links">
-        <a href="#service">Service</a>
-        <a href="#geschaeftsfelder">Geschäftsfelder</a>
-        <a href="#preise">Preise</a>
-        <a href="#bewertungen">Bewertungen</a>
-        <a href="#standort">Standort</a>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card heroLeft" data-aos="fade-up" data-aos-duration="850">
-        <div class="kicker"><span class="dot"></span> Ihre Wäscherei &amp; Textilpflege in Hamburg</div>
-        <h1 class="boss h1">Saubere Ergebnisse – <span style="color:#000;">seit 25 Jahren.</span></h1>
-        <p class="p">
-          Reinigung, Bügelservice, Schneiderei sowie Gastro- &amp; Hotelwäsche.
-          Schnell, zuverlässig und persönlich – ohne Callcenter.
-        </p>
-
-        <div class="btnRow">
-          <a class="btn primary" href="#standort">📍 Standort &amp; Route</a>
-          <a class="btn" href="#service">✨ Unsere Leistungen</a>
-        </div>
-
-        <div class="btnRow" style="margin-top:10px">
-          <div class="kicker" style="background:#fff;">
-            <span class="dot"></span>
-            <span>Familienbetrieb • Qualität • Faire Preise</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card heroRight" data-aos="fade-up" data-aos-duration="850" data-aos-delay="120">
-        <div class="heroMedia" id="parallaxHero"></div>
-        <div class="stats">
-          <div class="stat">
-            <div class="num"><span class="count" data-to="25">0</span>+</div>
-            <div class="lbl">Jahre Erfahrung</div>
-          </div>
-          <div class="stat">
-            <div class="num"><span class="count" data-to="100">0</span>%</div>
-            <div class="lbl">Fokus: Zufriedenheit</div>
-          </div>
-          <div class="stat">
-            <div class="num"><span class="count" data-to="7">0</span></div>
-            <div class="lbl">Tage/Woche möglich</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICE -->
-    <section class="section" id="service">
-      <div class="head" data-aos="fade-up">
-        <div>
-          <h2 class="boss h2">Unser Service für Sie</h2>
-          <p class="p">Wie auf deiner Vorlage: Flexibilität, Qualität, Kundenorientierung – aber moderner &amp; clean.</p>
-        </div>
-      </div>
-
-      <div class="three">
-        <div class="serviceCard" data-aos="fade-up" data-aos-delay="40">
-          <h3>Flexibilität &amp; Liefertreue</h3>
-          <p class="p">Kurze Wege in Hamburg – wir reagieren schnell und zuverlässig auf Ihre Wünsche.</p>
-        </div>
-        <div class="serviceCard" data-aos="fade-up" data-aos-delay="80">
-          <h3>Qualität</h3>
-          <p class="p">Erfahrene Mitarbeitende, moderne Verfahren und ein dauerhaft hohes Qualitätsniveau.</p>
-        </div>
-        <div class="serviceCard" data-aos="fade-up" data-aos-delay="120">
-          <h3>Kundenorientierung</h3>
-          <p class="p">Persönlicher Kontakt statt Callcenter – Sie wissen immer, mit wem Sie sprechen.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GESCHÄFTSFELDER -->
-    <section class="section" id="geschaeftsfelder">
-      <div class="head" data-aos="fade-up">
-        <div>
-          <h2 class="boss h2">Unsere Geschäftsfelder</h2>
-          <p class="p">So wie bei Lemado: Bild + klare Liste – wirkt direkt nach „echte Firma“.</p>
-        </div>
-      </div>
-
-      <div class="fields">
-        <div class="fieldImg" data-aos="fade-up"></div>
-
-        <div class="fieldList" data-aos="fade-up" data-aos-delay="70">
-          <div class="boss" style="font-size:18px; letter-spacing:-.3px; color:#000;">Für Privat &amp; Gewerbe</div>
-          <div class="bullets">
-            <div class="bullet"><span>Hotel • Restaurant • Gastro</span><i>›</i></div>
-            <div class="bullet"><span>Mietwäsche • Leasing</span><i>›</i></div>
-            <div class="bullet"><span>Berufsbekleidung</span><i>›</i></div>
-            <div class="bullet"><span>Ärzte • Apotheken • Physio</span><i>›</i></div>
-            <div class="bullet"><span>Annahmestellen • Reinigungen</span><i>›</i></div>
-            <div class="bullet"><span>Privatkunden</span><i>›</i></div>
-            <div class="bullet"><span>Schneiderei • Änderungen</span><i>›</i></div>
-          </div>
-
-          <div class="btnRow">
-            <a class="btn primary" href="#standort">📍 Jetzt vorbeikommen</a>
-            <a class="btn" href="#preise">💶 Preise ansehen</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PREISE -->
-    <section class="section" id="preise">
-      <div class="head" data-aos="fade-up">
-        <div>
-          <h2 class="boss h2">Preise</h2>
-          <p class="p">
-            Damit es nicht riesig lang wird: Kategorien aufklappen. Später füllen wir alles richtig mit euren echten Preisen.
-          </p>
-        </div>
-      </div>
-
-      <div class="pricesWrap" data-aos="fade-up">
-        <div class="pricesHead">
-          <div>
-            <div class="boss" style="font-size:18px; color:#000;">Preisübersicht (kurz)</div>
-            <div class="small">Richtwerte • Material/Aufwand kann variieren</div>
-          </div>
-          <a class="priceBtn" href="preisliste.pdf" target="_blank" rel="noopener">📄 Komplette Preisliste (PDF)</a>
-        </div>
-
-        <div class="accordion">
-          <details class="accItem">
-            <summary><span>👔 Hemden &amp; Business</span><span class="accHint">anzeigen</span></summary>
-            <div class="accBody">
-              <div class="row"><span class="label">Hemd</span><span class="price">ab 2,80 €</span></div>
-              <div class="row"><span class="label">Bluse</span><span class="price">ab … €</span></div>
-              <div class="row"><span class="label">Krawatte</span><span class="price">ab … €</span></div>
-            </div>
-          </details>
-
-          <details class="accItem">
-            <summary><span>🧥 Jacken, Mäntel &amp; Anzüge</span><span class="accHint">anzeigen</span></summary>
-            <div class="accBody">
-              <div class="row"><span class="label">Jacke</span><span class="price">ab 8,00 €</span></div>
-              <div class="row"><span class="label">Anzug</span><span class="price">ab 15,00 €</span></div>
-              <div class="row"><span class="label">Mantel</span><span class="price">ab … €</span></div>
-            </div>
-          </details>
-
-          <details class="accItem">
-            <summary><span>👗 Abendkleider &amp; Spezial</span><span class="accHint">anzeigen</span></summary>
-            <div class="accBody">
-              <div class="row"><span class="label">Abendkleid</span><span class="price">ab 20,00 €</span></div>
-              <div class="row"><span class="label">Spezialreinigung</span><span class="price">auf Anfrage</span></div>
-            </div>
-          </details>
-
-          <details class="accItem">
-            <summary><span>🏨 Gastro &amp; Hotelwäsche</span><span class="accHint">anzeigen</span></summary>
-            <div class="accBody">
-              <div class="row"><span class="label">Tischwäsche</span><span class="price">auf Anfrage</span></div>
-              <div class="row"><span class="label">Arbeitskleidung</span><span class="price">auf Anfrage</span></div>
-            </div>
-          </details>
-
-          <details class="accItem">
-            <summary><span>🧵 Schneiderei</span><span class="accHint">anzeigen</span></summary>
-            <div class="accBody">
-              <div class="row"><span class="label">Kürzen / Nähen</span><span class="price">ab 5,00 €</span></div>
-              <div class="row"><span class="label">Reparaturen</span><span class="price">ab … €</span></div>
-            </div>
-          </details>
-        </div>
-
-        <div class="small" style="margin-top:12px;">
-          Tipp: Wenn ihr richtig viele Preise habt, bleibt die Seite sauber – und die PDF ist die „große Liste“.
-        </div>
-      </div>
-    </section>
-
-    <!-- BEWERTUNGEN -->
-    <section class="section" id="bewertungen">
-      <div class="head" data-aos="fade-up">
-        <div>
-          <h2 class="boss h2">Bewertungen</h2>
-          <p class="p">Wie bei Lemado: „Ausgezeichnet“ + Google-Style Karten (hier als clean Slider).</p>
-        </div>
-      </div>
-
-      <div class="reviews" data-aos="fade-up">
-        <div class="reviewsTop">
-          <div>
-            <div class="boss" style="font-size:22px; color:#000;">AUSGEZEICHNET</div>
-            <div class="stars">★★★★★</div>
-            <div class="small">Basierend auf Google Bewertungen</div>
-          </div>
-          <div class="small" style="align-self:center;">
-            (Später tauschen wir die Texte gegen echte Bewertungen aus.)
-          </div>
-        </div>
-
-        <div class="revRow">
-          <div class="revCard">
-            <div class="revName">Kunde A</div>
-            <div class="small">★★★★★</div>
-            <div class="revText">„Sehr freundlich, schnell fertig und top Ergebnis. Kann ich nur empfehlen.“</div>
-          </div>
-          <div class="revCard">
-            <div class="revName">Kunde B</div>
-            <div class="small">★★★★★</div>
-            <div class="revText">„Anzüge und Hemden immer sauber, Preis-Leistung passt.“</div>
-          </div>
-          <div class="revCard">
-            <div class="revName">Kunde C</div>
-            <div class="small">★★★★★</div>
-            <div class="revText">„Professionell, zuverlässig, super Service – gerne wieder.“</div>
-          </div>
-          <div class="revCard">
-            <div class="revName">Kunde D</div>
-            <div class="small">★★★★★</div>
-            <div class="revText">„Auch Änderungen gingen schnell und sauber.“</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STANDORT -->
-    <section class="section" id="standort">
-      <div class="head" data-aos="fade-up">
-        <div>
-          <h2 class="boss h2">Hier finden Sie uns</h2>
-          <p class="p">Map + Infos – damit jeder sofort weiß, wie man hinkommt.</p>
-        </div>
-      </div>
-
-      <div class="location">
-        <div class="mapBox" data-aos="fade-up">
-          <!-- Google Maps Embed: später ersetzen -->
-          <iframe
-            title="Google Maps"
-            width="100%"
-            height="340"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Hamburg&output=embed">
-          </iframe>
-        </div>
-
-        <div class="locInfo" data-aos="fade-up" data-aos-delay="70">
-          <div class="boss" style="font-size:18px; color:#000;">Textilpflege Fix &amp; Fertig</div>
-          <div class="small">Seit 25 Jahren in Hamburg</div>
-
-          <div class="contactGrid">
-            <div class="cItem">
-              <div class="cIcon">📍</div>
-              <div>
-                <div style="font-weight:800;">Adresse</div>
-                <div class="small">Straße Hausnummer, PLZ Hamburg</div>
-              </div>
-            </div>
-
-            <div class="cItem">
-              <div class="cIcon">📞</div>
-              <div>
-                <div style="font-weight:800;">Telefon</div>
-                <div class="small"><a href="tel:+49XXXXXXXXXX" style="text-decoration:underline; text-decoration-color: rgba(11,15,24,.25)">+49 …</a></div>
-              </div>
-            </div>
-
-            <div class="cItem">
-              <div class="cIcon">⏰</div>
-              <div>
-                <div style="font-weight:800;">Öffnungszeiten</div>
-                <div class="small">Mo–Fr: ..–.. • Sa: ..–..</div>
-              </div>
-            </div>
-
-            <div class="cItem">
-              <div class="cIcon">✉️</div>
-              <div>
-                <div style="font-weight:800;">E-Mail</div>
-                <div class="small"><a href="mailto:info@..." style="text-decoration:underline; text-decoration-color: rgba(11,15,24,.25)">info@…</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="btnRow">
-            <a class="btn primary" href="https://www.google.com/maps" target="_blank" rel="noopener">🗺️ Route planen</a>
-            <a class="btn" href="#bewertungen">⭐ Bewertungen</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Rechtliches -->
-    <section class="section" id="rechtliches">
-      <div class="card" style="padding:18px;" data-aos="fade-up">
-        <h2 class="boss h2" style="margin-bottom:6px;">Impressum &amp; Datenschutz</h2>
-        <p class="p">
-          Hier kommen eure offiziellen Firmendaten rein (Firma, Inhaber/Geschäftsführer, Adresse, Kontakt, ggf. USt-ID).
-          Datenschutz: Kontaktmöglichkeiten + ggf. Cookies/Tracking Hinweis (falls später eingebaut).
-        </p>
-      </div>
-    </section>
-
-    <div class="footer">
-      <div>© <span id="y"></span> Textilpflege Fix &amp; Fertig • Hamburg</div>
-      <div><a href="#standort">Kontakt</a> • <a href="#rechtliches">Impressum</a> • <a href="#rechtliches">Datenschutz</a></div>
+    <div class="heroImage">
+      Hier kommt später ein echtes Foto vom Laden rein
     </div>
   </div>
+</section>
 
-  <!-- Floating Call Button -->
-  <a class="floatCall" href="tel:+49XXXXXXXXXX">📞 Anrufen</a>
+<section class="quickbar">
+  <div class="container quickbarInner">
+    <div class="qItem">
+      <div class="qTitle">Adresse</div>
+      <div class="qText">Branstücken 23, Hamburg</div>
+    </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    <div class="qItem">
+      <div class="qTitle">Öffnungszeiten</div>
+      <div class="qText">Mo–Fr: 7–18 Uhr • Sa: 7–13 Uhr</div>
+    </div>
 
-    AOS.init({ once: true, duration: 850, easing: "ease-out-cubic" });
+    <div class="qItem">
+      <div class="qTitle">Kontakt</div>
+      <div class="qText">040 43282373 • info@textilpflege-fixundfertig.de</div>
+    </div>
+  </div>
+</section>
 
-    // Counter
-    const counters = document.querySelectorAll(".count");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        const el = entry.target;
-        const to = parseInt(el.dataset.to, 10) || 0;
-        let cur = 0;
-        const step = Math.max(1, Math.round(to / 40));
-        const tick = () => {
-          cur += step;
-          if(cur >= to){ el.textContent = to; return; }
-          el.textContent = cur;
-          requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        io.unobserve(el);
-      });
-    }, { threshold: 0.35 });
-    counters.forEach(c => io.observe(c));
+<section class="section" id="service">
+  <div class="container">
+    <h2>Unser Service</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Flexibilität</h3>
+        <p>Kurze Wege in Hamburg – schnelle Bearbeitung.</p>
+      </div>
+      <div class="card">
+        <h3>Qualität</h3>
+        <p>Erfahrene Mitarbeitende & moderne Verfahren.</p>
+      </div>
+      <div class="card">
+        <h3>Persönlicher Kontakt</h3>
+        <p>Kein Callcenter – direkter Ansprechpartner.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Nur ein Dropdown offen
-    document.querySelectorAll('.accItem').forEach((d) => {
-      d.addEventListener('toggle', () => {
-        if(!d.open) return;
-        document.querySelectorAll('.accItem').forEach((o) => {
-          if(o !== d) o.open = false;
-        });
-      });
-    });
+<section class="section" id="kontakt">
+  <div class="container">
+    <h2>Standort</h2>
+    <div class="card">
+      Google Maps Karte kommt hier rein.
+    </div>
+  </div>
+</section>
 
-    // Sanfte Parallax im Hero
-    const hero = document.getElementById("parallaxHero");
-    window.addEventListener("scroll", () => {
-      const y = window.scrollY || 0;
-      hero.style.transform = `translateY(${Math.min(14, y * 0.03)}px)`;
-    }, { passive:true });
-  </script>
+<footer class="footer">
+  <div class="container">
+    © 2026 Textilpflege Fix & Fertig – Hamburg
+  </div>
+</footer>
+
 </body>
 </html>

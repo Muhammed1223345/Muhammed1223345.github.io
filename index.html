@@ -5,398 +5,471 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Textilpflege Fix & Fertig – Hamburg</title>
   <meta name="description" content="Professionelle Textilpflege in Hamburg: Hemden, Anzüge, Jacken, Abendkleider, Tischwäsche & Schneiderei. Schnell, sauber, fair." />
+
+  <!-- Google Font (clean/premium) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS (Scroll Animationen) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#101a32;
-      --muted:#9fb0d0;
-      --text:#eef3ff;
-      --brand:#4ea1ff;
-      --brand2:#28d7a4;
-      --ring: rgba(78,161,255,.35);
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --bg: #071423;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.10);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,.72);
+      --brand: #2f80ed;
+      --brand2:#56ccf2;
+      --shadow: 0 18px 70px rgba(0,0,0,.45);
       --radius: 22px;
+      --max: 1120px;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(78,161,255,.30), transparent 55%),
-        radial-gradient(900px 500px at 85% 25%, rgba(40,215,164,.20), transparent 55%),
-        linear-gradient(180deg, #070b14 0%, #0b1220 40%, #070b14 100%);
-      min-height:100vh;
+        radial-gradient(1000px 520px at 20% 5%, rgba(47,128,237,.28), transparent 60%),
+        radial-gradient(900px 520px at 85% 18%, rgba(86,204,242,.18), transparent 60%),
+        linear-gradient(180deg, #050c14 0%, var(--bg) 55%, #050c14 100%);
     }
     a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:28px 18px 70px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px;}
+
+    /* NAV */
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:14px 16px;
-      background: rgba(16,26,50,.55);
-      border: 1px solid rgba(255,255,255,.08);
+      position:sticky; top:14px; z-index:50;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 14px;
+      background: rgba(10,18,32,.55);
+      border: 1px solid var(--border);
       border-radius: 18px;
       backdrop-filter: blur(10px);
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      position: sticky; top: 14px; z-index: 50;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:-.2px;
     }
     .logo{
-      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
-    }
-    .dot{
-      width:34px;height:34px;border-radius:12px;
-      background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.0) 55%),
+      width:36px;height:36px;border-radius:14px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 55%),
                   linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 10px 25px rgba(78,161,255,.25);
+      box-shadow: 0 12px 30px rgba(47,128,237,.25);
     }
-    .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    .navlinks a{
+    .links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .links a{
       color:var(--muted);
       padding:10px 12px;
       border-radius: 12px;
-      transition: .2s;
+      transition:.2s;
     }
-    .navlinks a:hover{background: rgba(255,255,255,.06); color: var(--text)}
+    .links a:hover{background: rgba(255,255,255,.06); color:#fff}
+
+    /* HERO */
     .hero{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      align-items: stretch;
+      margin-top:20px;
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:18px;
+      align-items:stretch;
     }
-    @media (max-width: 900px){
-      .hero{grid-template-columns: 1fr; }
-      .nav{position:relative; top:0}
-    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .nav{position:relative; top:0}}
     .card{
-      background: rgba(16,26,50,.60);
-      border: 1px solid rgba(255,255,255,.10);
+      background: var(--panel);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
-    .hero-left{padding:34px;}
+    .hero-left{padding:34px 34px 26px}
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
-      color: var(--muted);
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
       padding:10px 12px;
-      border-radius: 999px;
-      font-size: 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-size:14px;
     }
-    .kicker span{
+    .kicker .dot{
       width:10px;height:10px;border-radius:50%;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 6px rgba(78,161,255,.12);
+      background: linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow: 0 0 0 6px rgba(47,128,237,.12);
     }
     h1{
       margin:16px 0 10px;
-      font-size: clamp(34px, 4.4vw, 56px);
-      line-height: 1.05;
-      letter-spacing: -0.8px;
+      font-size: clamp(36px, 4.6vw, 58px);
+      line-height:1.03;
+      letter-spacing:-1px;
     }
     .sub{
-      color: var(--muted);
-      font-size: 16.5px;
-      line-height: 1.65;
-      max-width: 55ch;
-      margin: 0 0 18px;
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      max-width: 60ch;
     }
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 12px 16px;
+      padding:12px 16px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid var(--border);
       background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 650;
-      transition: .2s;
+      font-weight:700;
+      transition:.2s;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08)}
     .btn.primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      border: none;
-      box-shadow: 0 16px 40px rgba(78,161,255,.20);
+      border:none;
+      background: linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow: 0 18px 45px rgba(47,128,237,.22);
     }
-    .btn.primary:hover{box-shadow: 0 20px 55px rgba(78,161,255,.28)}
-    .badges{
-      display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;
-      color: var(--muted); font-size: 14px;
+    .btn.primary:hover{box-shadow: 0 22px 60px rgba(47,128,237,.30)}
+    .trust{
+      margin-top:16px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
     }
-    .badge{
+    .chip{
       display:flex; align-items:center; gap:10px;
       padding:10px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
+      border: 1px solid var(--border);
       background: rgba(255,255,255,.04);
     }
-    .badge i{
-      width:24px;height:24px;border-radius:10px;
-      display:inline-grid; place-items:center;
-      background: rgba(78,161,255,.14);
-      color: var(--text);
-      font-style: normal;
+    .chip i{
+      width:26px;height:26px;border-radius:12px;
+      display:grid; place-items:center;
+      background: rgba(47,128,237,.16);
+      font-style:normal;
     }
-    .hero-right{
-      padding: 18px;
-      display:flex; flex-direction:column; gap:14px;
-    }
-    .photo{
-      flex: 1;
+
+    .hero-right{padding:16px; display:flex; flex-direction:column; gap:12px}
+    .hero-media{
+      position:relative;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(400px 220px at 20% 10%, rgba(255,255,255,.10), transparent 55%),
-        linear-gradient(135deg, rgba(78,161,255,.25), rgba(40,215,164,.12));
-      display:flex; align-items:flex-end;
+      border: 1px solid var(--border);
       overflow:hidden;
-      min-height: 260px;
-      position: relative;
+      min-height: 280px;
+      background:
+        linear-gradient(135deg, rgba(47,128,237,.28), rgba(86,204,242,.10)),
+        radial-gradient(420px 250px at 20% 10%, rgba(255,255,255,.10), transparent 60%);
     }
-    .photo::after{
-      content:"Foto/Logo hier einfügen";
+    /* Optional: eigenes Bild hochladen (laden.jpg) und diese 3 Zeilen aktivieren:
+    .hero-media{ background-image:url("laden.jpg"); background-size:cover; background-position:center; }
+    */
+    .hero-media::after{
+      content:"Foto vom Laden/Team hier rein (optional)";
       position:absolute; top:14px; left:14px;
-      font-size: 13px; color: rgba(255,255,255,.75);
-      background: rgba(0,0,0,.20);
-      border: 1px solid rgba(255,255,255,.12);
-      padding:8px 10px; border-radius: 12px;
+      font-size:13px;
+      color: rgba(255,255,255,.85);
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.12);
+      padding:8px 10px;
+      border-radius: 12px;
     }
-    .mini{
-      padding: 14px 16px;
+    .stats{
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;
+    }
+    @media (max-width: 500px){ .stats{grid-template-columns:1fr} }
+    .stat{
+      padding:14px 14px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
+      border:1px solid var(--border);
+      background: var(--panel2);
     }
-    .mini strong{color: var(--text)}
+    .stat .num{
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing:-.3px;
+    }
+    .stat .lbl{color:var(--muted); font-size: 13px; margin-top:2px}
+
+    /* SECTIONS */
     .grid{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
+      margin-top:18px;
+      display:grid; grid-template-columns: repeat(12, 1fr); gap:14px;
     }
+    .col-12{grid-column: span 12}
+    .col-8{grid-column: span 8}
     .col-6{grid-column: span 6}
     .col-4{grid-column: span 4}
-    .col-8{grid-column: span 8}
-    .col-12{grid-column: span 12}
-    @media (max-width: 900px){
-      .col-6,.col-4,.col-8{grid-column: span 12}
-    }
-    .section{padding: 22px;}
-    .section h2{margin:0 0 10px; font-size: 22px}
-    .section p{margin:0; color: var(--muted); line-height: 1.7}
-    .list{margin-top:14px; display:grid; gap:10px}
-    .item{
+    @media (max-width: 900px){ .col-8,.col-6,.col-4{grid-column: span 12} }
+
+    .section{padding:22px}
+    .section h2{margin:0 0 10px; font-size: 22px; letter-spacing:-.3px}
+    .section p{margin:0; color:var(--muted); line-height:1.7}
+
+    .tiles{margin-top:14px; display:grid; gap:10px}
+    .tile{
       display:flex; gap:12px; align-items:flex-start;
-      padding:12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
+      padding:14px;
+      border-radius: 18px;
+      border:1px solid var(--border);
       background: rgba(255,255,255,.04);
+      transition:.2s;
     }
-    .item b{display:block; margin-bottom:2px}
-    .pill{
-      width:34px; height:34px; border-radius: 14px;
-      background: rgba(40,215,164,.14);
+    .tile:hover{transform: translateY(-2px); background: rgba(255,255,255,.06)}
+    .icon{
+      width:40px;height:40px;border-radius:16px;
       display:grid; place-items:center;
+      background: rgba(86,204,242,.14);
       flex:0 0 auto;
+      font-size:18px;
     }
-    .prices{
-      margin-top: 12px;
-      display:grid; gap:10px;
-    }
-    .price-row{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
+    .tile b{display:block; margin-bottom:4px}
+
+    .price-list{margin-top:14px; display:grid; gap:10px}
+    .price{
+      display:flex; justify-content:space-between; gap:14px; align-items:center;
+      padding:14px;
+      border-radius: 18px;
+      border:1px solid var(--border);
       background: rgba(255,255,255,.04);
-      color: var(--muted);
+      color:var(--muted);
     }
-    .price-row strong{color: var(--text)}
+    .price strong{color:#fff}
+
+    .cta-box{
+      margin-top:14px;
+      padding:18px;
+      border-radius: 20px;
+      border:1px solid rgba(47,128,237,.28);
+      background: linear-gradient(135deg, rgba(47,128,237,.22), rgba(86,204,242,.10));
+      box-shadow: 0 0 0 6px rgba(47,128,237,.08);
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+
     .footer{
-      margin-top: 22px;
-      color: rgba(255,255,255,.6);
+      margin-top:18px;
+      color: rgba(255,255,255,.65);
       font-size: 13px;
-      display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between;
-      padding: 16px 4px 0;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding: 10px 4px 0;
     }
     .footer a{color: rgba(255,255,255,.75); text-decoration: underline; text-decoration-color: rgba(255,255,255,.25)}
-    .callout{
-      border: 1px solid rgba(78,161,255,.25);
-      box-shadow: 0 0 0 6px rgba(78,161,255,.08);
-    }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="wrap">
 
-    <header class="nav">
-      <div class="logo">
-        <div class="dot"></div>
-        <div>Textilpflege <span style="color:var(--muted); font-weight:600;">Fix &amp; Fertig</span></div>
+    <header class="nav" data-aos="fade-down" data-aos-duration="700">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>Textilpflege <span style="opacity:.75; font-weight:700">Fix &amp; Fertig</span></div>
       </div>
-      <nav class="navlinks">
+      <nav class="links">
+        <a href="#vorteile">Vorteile</a>
         <a href="#leistungen">Leistungen</a>
         <a href="#preise">Preise</a>
-        <a href="#ueberuns">Über uns</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
     </header>
 
     <section class="hero">
-      <div class="card hero-left">
-        <div class="kicker"><span></span> Ihre Textilpflege in Hamburg</div>
-        <h1>Ihre Kleidung in <span style="color:var(--brand)">besten Händen</span>.</h1>
+      <div class="card hero-left" data-aos="fade-up" data-aos-duration="900">
+        <div class="kicker"><span class="dot"></span> Ihre Textilpflege in Hamburg</div>
+        <h1>Sauber. Schnell. <span style="background:linear-gradient(135deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Professionell.</span></h1>
         <p class="sub">
-          Professionelle Reinigung für <strong>Hemden, Anzüge, Jacken, Abendkleider</strong> und mehr –
-          schnell, sorgfältig und mit fairem Preis-Leistungs-Verhältnis.
+          Reinigung für <b>Hemden, Anzüge, Jacken, Abendkleider</b> und mehr – mit hoher Sorgfalt,
+          fairen Preisen und zuverlässiger Abholung.
         </p>
 
-        <div class="cta-row">
-          <a class="btn primary" href="#kontakt">📞 Jetzt anrufen</a>
+        <div class="cta">
+          <!-- Nummer später einfach ersetzen -->
+          <a class="btn primary" href="tel:+49XXXXXXXXXX">📞 Direkt anrufen</a>
           <a class="btn" href="#leistungen">✨ Leistungen ansehen</a>
         </div>
 
-        <div class="badges">
-          <div class="badge"><i>⚡</i> Schnelle Bearbeitung</div>
-          <div class="badge"><i>⭐</i> Hohe Qualität</div>
-          <div class="badge"><i>💶</i> Faire Preise</div>
+        <div class="trust">
+          <div class="chip"><i>⚡</i> Schnelle Bearbeitung</div>
+          <div class="chip"><i>⭐</i> Top Qualität</div>
+          <div class="chip"><i>💶</i> Faire Preise</div>
         </div>
       </div>
 
-      <div class="card hero-right">
-        <div class="photo"></div>
-        <div class="mini callout">
-          <strong>Top Qualität</strong><br/>
-          Seit über <strong>[10+]</strong> Jahren für Privatkunden, Restaurants &amp; Hotels.
+      <div class="card hero-right" data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
+        <div class="hero-media" id="parallax"></div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="num"><span class="count" data-to="10">0</span>+</div>
+            <div class="lbl">Jahre Erfahrung</div>
+          </div>
+          <div class="stat">
+            <div class="num"><span class="count" data-to="7">0</span></div>
+            <div class="lbl">Tage/Woche möglich</div>
+          </div>
+          <div class="stat">
+            <div class="num"><span class="count" data-to="100">0</span>%</div>
+            <div class="lbl">Fokus: Zufriedenheit</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="grid">
-      <div class="card section col-8" id="leistungen">
+
+      <div class="card section col-12" id="vorteile" data-aos="fade-up">
+        <h2>Warum Fix &amp; Fertig?</h2>
+        <p>So wie bei „premium“ Seiten: kurz, klar, überzeugend – und beim Scrollen kommt alles smooth rein.</p>
+
+        <div class="tiles" style="margin-top:14px; grid-template-columns: repeat(3, 1fr); display:grid;">
+          <div class="tile" data-aos="zoom-in" data-aos-delay="50">
+            <div class="icon">🧼</div>
+            <div><b>Saubere Ergebnisse</b> Sorgfältige Pflege – auch bei empfindlichen Stoffen.</div>
+          </div>
+          <div class="tile" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon">⏱️</div>
+            <div><b>Schnell &amp; zuverlässig</b> Klare Abgabe- &amp; Abholzeiten, pünktlich fertig.</div>
+          </div>
+          <div class="tile" data-aos="zoom-in" data-aos-delay="150">
+            <div class="icon">🤝</div>
+            <div><b>Freundlicher Service</b> Wir beraten ehrlich und finden Lösungen, wenn’s zählt.</div>
+          </div>
+        </div>
+
+        <div class="cta-box" data-aos="fade-up" data-aos-delay="120">
+          <div>
+            <b style="font-size:16px">Schnellkontakt</b><br>
+            <span style="color:var(--muted)">Anrufen oder direkt vorbeikommen – wir helfen sofort.</span>
+          </div>
+          <a class="btn primary" href="tel:+49XXXXXXXXXX">📞 Jetzt anrufen</a>
+        </div>
+      </div>
+
+      <div class="card section col-8" id="leistungen" data-aos="fade-up">
         <h2>Leistungen</h2>
-        <p>Alles rund um Reinigung, Pflege &amp; Aufbereitung – sorgfältig, zuverlässig und termingerecht.</p>
+        <p>Alles rund um Textilpflege &amp; Schneiderei – ideal für Privatkunden sowie Restaurants &amp; Hotels.</p>
 
-        <div class="list">
-          <div class="item">
-            <div class="pill">👔</div>
-            <div>
-              <b>Hemden &amp; Business</b>
-              Waschen, Bügeln, Finish – ideal für Alltag &amp; Beruf.
-            </div>
+        <div class="tiles">
+          <div class="tile" data-aos="fade-right">
+            <div class="icon">👔</div>
+            <div><b>Hemden &amp; Business</b> Waschen, Bügeln, Finish – ready für Alltag &amp; Job.</div>
           </div>
-          <div class="item">
-            <div class="pill">🧥</div>
-            <div>
-              <b>Jacken, Mäntel &amp; Anzüge</b>
-              Schonende Reinigung, damit Form &amp; Stoff lange halten.
-            </div>
+          <div class="tile" data-aos="fade-right" data-aos-delay="60">
+            <div class="icon">🧥</div>
+            <div><b>Jacken, Mäntel &amp; Anzüge</b> Schonend, damit Form &amp; Stoff lange halten.</div>
           </div>
-          <div class="item">
-            <div class="pill">👗</div>
-            <div>
-              <b>Abendkleider &amp; empfindliche Textilien</b>
-              Sorgfältige Behandlung – besonders bei feinen Stoffen.
-            </div>
+          <div class="tile" data-aos="fade-right" data-aos-delay="120">
+            <div class="icon">👗</div>
+            <div><b>Abendkleider</b> Sorgfältig – besonders bei feinen Materialien.</div>
           </div>
-          <div class="item">
-            <div class="pill">🍽️</div>
-            <div>
-              <b>Gastro &amp; Hotelwäsche</b>
-              Tischwäsche, Servietten, Arbeitskleidung – sauber &amp; pünktlich.
-            </div>
+          <div class="tile" data-aos="fade-right" data-aos-delay="180">
+            <div class="icon">🍽️</div>
+            <div><b>Gastro &amp; Hotelwäsche</b> Tischwäsche, Servietten, Arbeitskleidung – pünktlich.</div>
           </div>
-          <div class="item">
-            <div class="pill">🧵</div>
-            <div>
-              <b>Schneiderei</b>
-              Kürzen, nähen, reparieren – schnell und sauber.
-            </div>
+          <div class="tile" data-aos="fade-right" data-aos-delay="240">
+            <div class="icon">🧵</div>
+            <div><b>Schneiderei</b> Kürzen, nähen, reparieren – sauber &amp; schnell.</div>
           </div>
         </div>
       </div>
 
-      <div class="card section col-4" id="preise">
+      <div class="card section col-4" id="preise" data-aos="fade-up">
         <h2>Beispielpreise</h2>
-        <p>Transparente Richtwerte. Exakte Preise je nach Material &amp; Aufwand.</p>
+        <p>Richtwerte (Material/Aufwand kann variieren). Wenn du willst, machen wir eine komplette Preisliste.</p>
 
-        <div class="prices">
-          <div class="price-row"><span>Hemd reinigen/bügeln</span><strong>ab [2,80 €]</strong></div>
-          <div class="price-row"><span>Jacke</span><strong>ab [8,00 €]</strong></div>
-          <div class="price-row"><span>Anzug</span><strong>ab [15,00 €]</strong></div>
-          <div class="price-row"><span>Abendkleid</span><strong>ab [20,00 €]</strong></div>
-          <div class="price-row"><span>Änderungen (Schneiderei)</span><strong>ab [5,00 €]</strong></div>
-        </div>
-
-        <div style="margin-top:14px; color:var(--muted); font-size:14px; line-height:1.6;">
-          Tipp: Wenn du magst, pack ich dir auch eine „Preis-PDF“ oder eine größere Preisliste rein.
+        <div class="price-list">
+          <div class="price"><span>Hemd</span><strong>ab 2,80 €</strong></div>
+          <div class="price"><span>Jacke</span><strong>ab 8,00 €</strong></div>
+          <div class="price"><span>Anzug</span><strong>ab 15,00 €</strong></div>
+          <div class="price"><span>Abendkleid</span><strong>ab 20,00 €</strong></div>
+          <div class="price"><span>Schneiderei</span><strong>ab 5,00 €</strong></div>
         </div>
       </div>
 
-      <div class="card section col-6" id="ueberuns">
-        <h2>Über uns</h2>
-        <p>
-          <strong>Textilpflege Fix &amp; Fertig</strong> steht für freundlichen Service, saubere Ergebnisse und schnelle Abholung.
-          Viele Kunden kommen seit Jahren – privat und gewerblich.
-        </p>
-        <div style="margin-top:12px; color:var(--muted); line-height:1.7;">
-          <b>Unser Anspruch:</b> Sorgfalt, Zuverlässigkeit und eine Lösung, wenn mal etwas nicht passt.
-        </div>
-      </div>
-
-      <div class="card section col-6" id="kontakt">
+      <div class="card section col-12" id="kontakt" data-aos="fade-up">
         <h2>Kontakt</h2>
-        <p>Wir freuen uns auf Ihren Besuch. Anrufen oder direkt vorbeikommen:</p>
+        <p>Trag hier eure echten Daten ein – dann wirkt’s direkt „real“ und nicht wie Template.</p>
 
-        <div class="list" style="margin-top:14px;">
-          <div class="item">
-            <div class="pill">📍</div>
-            <div><b>Adresse</b> [Straße Hausnummer], [PLZ] Hamburg</div>
+        <div class="tiles" style="margin-top:14px; display:grid; grid-template-columns: repeat(4, 1fr);">
+          <div class="tile" data-aos="fade-up" data-aos-delay="30">
+            <div class="icon">📍</div>
+            <div><b>Adresse</b> Straße Hausnummer, PLZ Hamburg</div>
           </div>
-          <div class="item">
-            <div class="pill">📞</div>
-            <div><b>Telefon</b> <a href="tel:+49XXXXXXXXXX" style="text-decoration:underline; text-decoration-color: rgba(255,255,255,.25);">[+49 …]</a></div>
+          <div class="tile" data-aos="fade-up" data-aos-delay="60">
+            <div class="icon">📞</div>
+            <div><b>Telefon</b> <a href="tel:+49XXXXXXXXXX" style="text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)">+49 …</a></div>
           </div>
-          <div class="item">
-            <div class="pill">⏰</div>
-            <div><b>Öffnungszeiten</b> Mo–Fr: [..–..] • Sa: [..–..]</div>
+          <div class="tile" data-aos="fade-up" data-aos-delay="90">
+            <div class="icon">⏰</div>
+            <div><b>Öffnungszeiten</b> Mo–Fr: ..–.. / Sa: ..–..</div>
           </div>
-          <div class="item">
-            <div class="pill">✉️</div>
-            <div><b>E-Mail</b> <a href="mailto:info@deine-domain.de" style="text-decoration:underline; text-decoration-color: rgba(255,255,255,.25);">[info@…]</a></div>
+          <div class="tile" data-aos="fade-up" data-aos-delay="120">
+            <div class="icon">✉️</div>
+            <div><b>E-Mail</b> <a href="mailto:info@..." style="text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)">info@…</a></div>
           </div>
         </div>
 
-        <div class="cta-row" style="margin-top:14px;">
+        <div class="cta-box" style="margin-top:16px" data-aos="fade-up">
+          <div>
+            <b style="font-size:16px">Sofort Hilfe?</b><br>
+            <span style="color:var(--muted)">Ruf kurz an – wir sagen dir direkt Preis &amp; Dauer.</span>
+          </div>
           <a class="btn primary" href="tel:+49XXXXXXXXXX">📞 Direkt anrufen</a>
-          <a class="btn" href="#leistungen">➡️ Leistungen</a>
         </div>
       </div>
 
-      <div class="card section col-12">
+      <div class="card section col-12" data-aos="fade-up">
         <h2>Impressum &amp; Datenschutz</h2>
         <p>
-          Für Deutschland wichtig: bitte hier eure offiziellen Daten eintragen (Firma, Inhaber/Geschäftsführer, Adresse, Kontakt, USt-ID falls vorhanden).
-          Datenschutz: Hinweis auf Kontaktmöglichkeiten und ggf. Cookies/Tracking (wenn du später was einbaust).
+          Bitte hier eure offiziellen Daten eintragen (Firma, Inhaber/Geschäftsführer, Adresse, Kontakt, ggf. USt-ID).
+          Datenschutz: Kontaktmöglichkeiten + ggf. Cookie/Tracking Hinweis (falls später eingebaut).
         </p>
       </div>
+
     </section>
 
     <div class="footer">
       <div>© <span id="y"></span> Textilpflege Fix &amp; Fertig • Hamburg</div>
-      <div>
-        <a href="#kontakt">Kontakt</a> • <a href="#">Impressum</a> • <a href="#">Datenschutz</a>
-      </div>
+      <div><a href="#kontakt">Kontakt</a> • <a href="#">Impressum</a> • <a href="#">Datenschutz</a></div>
     </div>
 
   </div>
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
+    // Jahr
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Scroll Animations
+    AOS.init({ once: true, duration: 850, easing: "ease-out-cubic" });
+
+    // Counter Animation (startet wenn sichtbar)
+    const counters = document.querySelectorAll(".count");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        const el = entry.target;
+        const to = parseInt(el.dataset.to, 10) || 0;
+        let cur = 0;
+        const step = Math.max(1, Math.round(to / 40));
+        const tick = () => {
+          cur += step;
+          if(cur >= to){ el.textContent = to; return; }
+          el.textContent = cur;
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.35 });
+    counters.forEach(c => io.observe(c));
+
+    // Mini Parallax im Hero (sanft)
+    const hero = document.getElementById("parallax");
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY || 0;
+      hero.style.transform = `translateY(${Math.min(18, y * 0.03)}px)`;
+    }, { passive:true });
   </script>
 </body>
 </html>

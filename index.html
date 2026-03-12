@@ -788,4 +788,131 @@
         <span class="tag boss">Abhol- &amp; Lieferservice</span>
         <h2 class="boss">Planbarer Service für Unternehmen und Privatkunden.</h2>
         <p>
-          Unser Abhol- und Lie
+          Unser Abhol- und Lieferservice spart Zeit, schafft Struktur und sorgt für einen reibungslosen Ablauf
+          bei regelmäßigem oder individuellem Textilbedarf.
+        </p>
+      </div>
+
+      <div class="quality">
+        <div class="quality-item">
+          <h3>Zeit sparen</h3>
+          <p>Wir holen Textilien ab und liefern sie zuverlässig wieder zurück – abgestimmt auf Ihren Bedarf.</p>
+        </div>
+        <div class="quality-item">
+          <h3>Flexibel bleiben</h3>
+          <p>Regelmäßige und individuelle Termine lassen sich sauber in den Alltag oder den Betriebsablauf integrieren.</p>
+        </div>
+        <div class="quality-item">
+          <h3>Persönlich betreut</h3>
+          <p>Von der Annahme bis zur Rückgabe bleibt Ihr Auftrag in einer direkten und nachvollziehbaren Betreuung.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="standort">
+      <div class="section-head">
+        <span class="tag boss">Standort</span>
+        <h2 class="boss">Direkt erreichbar in Hamburg.</h2>
+        <p>
+          Besuchen Sie uns vor Ort oder nutzen Sie unseren Kontakt- und Abholservice.
+          Wir freuen uns auf Ihre Anfrage.
+        </p>
+      </div>
+
+      <div class="location">
+        <div class="map">
+          <iframe
+            title="Google Maps"
+            width="100%"
+            height="430"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Branst%C3%BCcken%2023%2C%2022549%20Hamburg&output=embed">
+          </iframe>
+        </div>
+
+        <div class="info-panel">
+          <div class="info-group">
+            <div class="info-label">Unternehmen</div>
+            <div class="info-value">Textilpflege Fix &amp; Fertig GmbH</div>
+          </div>
+
+          <div class="info-group">
+            <div class="info-label">Adresse</div>
+            <div class="info-value">Branstücken 23, 22549 Hamburg</div>
+          </div>
+
+          <div class="info-group">
+            <div class="info-label">Telefon</div>
+            <div class="info-value"><a href="tel:+494043282373">040 43282373</a></div>
+          </div>
+
+          <div class="info-group">
+            <div class="info-label">E-Mail</div>
+            <div class="info-value"><a href="mailto:info@textilpflege-fixundfertig.de">info@textilpflege-fixundfertig.de</a></div>
+          </div>
+
+          <div class="info-group">
+            <div class="info-label">Öffnungszeiten</div>
+            <div class="info-value">Montag bis Freitag: 7:00 – 18:00 Uhr<br>Samstag: 7:00 – 13:00 Uhr</div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+            <a class="btn btn-primary" href="https://www.google.com/maps?q=Branst%C3%BCcken%2023%2C%2022549%20Hamburg" target="_blank" rel="noopener">🗺️ Route planen</a>
+            <a class="btn btn-secondary" href="mailto:info@textilpflege-fixundfertig.de">✉️ E-Mail senden</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="legal" id="rechtliches">
+      <h2 class="boss">Impressum &amp; Datenschutz</h2>
+      <p>
+        Hier können im nächsten Schritt die vollständigen rechtlichen Angaben der Textilpflege Fix &amp; Fertig GmbH ergänzt werden,
+        einschließlich Impressum, verantwortlicher Personen und Datenschutzhinweisen.
+      </p>
+    </div>
+
+    <footer>
+      <div>© <span id="year"></span> Textilpflege Fix &amp; Fertig GmbH • Hamburg</div>
+      <div>
+        <a href="#kontakt">Kontakt</a> •
+        <a href="#rechtliches">Impressum</a> •
+        <a href="#rechtliches">Datenschutz</a>
+      </div>
+    </footer>
+  </div>
+
+  <a class="float-call" href="tel:+494043282373">📞 Anrufen</a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const counters = document.querySelectorAll(".count");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const to = parseInt(el.dataset.to, 10) || 0;
+        let cur = 0;
+        const step = Math.max(1, Math.round(to / 35));
+        const tick = () => {
+          cur += step;
+          if (cur >= to) {
+            el.textContent = to;
+            return;
+          }
+          el.textContent = cur;
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.3 });
+
+    counters.forEach(c => io.observe(c));
+  </script>
+</body>
+</html>

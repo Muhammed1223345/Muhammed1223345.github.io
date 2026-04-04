@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Standort | Textilpflege Fix & Fertig GmbH</title>
+  <meta
+    name="description"
+    content="Standort der Textilpflege Fix & Fertig GmbH in Hamburg. Adresse, Öffnungszeiten, Kontakt und Google Maps auf einen Blick."
+  />
+  <style>
+    :root {
+      --primary: #8fd0f1;
+      --primary-strong: #63bbe7;
+      --primary-soft: #eef8fd;
+      --navy: #17384a;
+      --navy-soft: #2b556b;
+      --text: #1d2d37;
+      --muted: #687985;
+      --line: #dbe8f0;
+      --white: #ffffff;
+      --bg: #f8fbfd;
+      --shadow: 0 18px 45px rgba(23, 56, 74, 0.08);
+      --shadow-soft: 0 12px 28px rgba(23, 56, 74, 0.06);
+      --max-width: 1240px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(calc(100% - 40px), var(--max-width)); margin: 0 auto; }
+    .topbar { background: var(--navy); color: rgba(255,255,255,0.88); font-size: 14px; }
+    .topbar-inner { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 8px 0; }
+    .topbar-group { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(219,232,240,0.9); }
+    .nav { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 14px; min-width: 0; flex-shrink: 0; }
+    .logo-mark { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, var(--primary), #d9f2ff); color: var(--navy); font-weight: 800; letter-spacing: 0.5px; box-shadow: var(--shadow-soft); }
+    .logo-text strong { display: block; font-size: 18px; line-height: 1.1; color: var(--navy); }
+    .logo-text span { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.9px; margin-top: 4px; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    nav ul { list-style: none; display: flex; align-items: center; gap: 28px; }
+    nav li { position: relative; }
+    nav > ul > li > a, .dropdown-toggle { font-size: 15px; font-weight: 700; color: var(--navy); background: none; border: 0; cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 8px; }
+    nav a:hover, .dropdown-toggle:hover, nav a.active { color: var(--navy-soft); }
+    .dropdown-menu { position: absolute; top: calc(100% + 18px); left: 50%; transform: translateX(-50%); width: 270px; padding: 14px; background: var(--white); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); opacity: 0; visibility: hidden; transition: 0.22s ease; }
+    .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; top: calc(100% + 14px); }
+    .dropdown-menu a { display: block; padding: 14px 16px; border-radius: 16px; color: var(--navy); font-weight: 700; transition: 0.18s ease; }
+    .dropdown-menu a span { display: block; color: var(--muted); font-size: 13px; font-weight: 500; margin-top: 4px; }
+    .dropdown-menu a:hover, .dropdown-menu a.active { background: var(--primary-soft); }
+    .phone-button { display: inline-flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); background: #f8fbfd; color: var(--navy); box-shadow: var(--shadow-soft); white-space: nowrap; }
+    .phone-icon { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #daf1fd); display: grid; place-items: center; font-size: 18px; flex-shrink: 0; }
+    .phone-text small { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.9px; color: var(--muted); margin-bottom: 2px; font-weight: 700; }
+    .phone-text strong { display: block; font-size: 15px; line-height: 1.1; }
+    .hero { position: relative; min-height: 72vh; background: url('hero.jpg') center center / cover no-repeat; display: flex; align-items: center; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,29,38,0.74) 0%, rgba(12,29,38,0.56) 42%, rgba(12,29,38,0.2) 100%); }
+    .hero-inner { position: relative; z-index: 2; width: 100%; padding: 90px 0; }
+    .hero-copy { max-width: 760px; color: var(--white); }
+    .eyebrow { display: inline-flex; align-items: center; padding: 9px 14px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-bottom: 22px; }
+    .hero h1 { font-size: clamp(40px, 5.6vw, 72px); line-height: 0.97; letter-spacing: -1.8px; margin-bottom: 18px; }
+    .hero p { font-size: 19px; max-width: 660px; color: rgba(255,255,255,0.9); margin-bottom: 34px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px; font-size: 15px; font-weight: 700; transition: 0.2s ease; border: 1px solid transparent; }
+    .btn-primary { background: var(--primary); color: var(--navy); }
+    .btn-primary:hover { background: var(--primary-strong); transform: translateY(-1px); }
+    .btn-secondary { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); color: var(--white); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+    section { padding: 110px 0; }
+    .section-head { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 30px; align-items: end; margin-bottom: 46px; }
+    .label { display: inline-block; font-size: 13px; font-weight: 800; color: var(--navy-soft); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+    .section-head h2 { font-size: clamp(32px, 4vw, 52px); line-height: 1.05; letter-spacing: -1.2px; color: var(--navy); }
+    .section-head p { font-size: 17px; color: var(--muted); max-width: 720px; }
+    .location-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 28px; align-items: stretch; }
+    .info-card { background: var(--navy); color: rgba(255,255,255,0.9); border-radius: 30px; padding: 38px; box-shadow: var(--shadow); }
+    .info-card h3 { font-size: 31px; line-height: 1.08; color: var(--white); margin-bottom: 20px; }
+    .info-item { margin-bottom: 18px; }
+    .info-item strong { display: block; font-size: 15px; color: var(--white); margin-bottom: 4px; }
+    .map-wrap { overflow: hidden; border-radius: 30px; border: 1px solid var(--line); box-shadow: var(--shadow-soft); min-height: 500px; }
+    .map-wrap iframe { width: 100%; height: 100%; min-height: 500px; border: 0; }
+    .hours-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .hours-card { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: 30px 26px; box-shadow: var(--shadow-soft); }
+    .hours-card h3 { color: var(--navy); font-size: 22px; margin-bottom: 10px; }
+    .hours-card p { color: var(--muted); font-size: 15px; }
+    .cta-box { background: linear-gradient(135deg, #dff2fd 0%, #f8fdff 58%, #ffffff 100%); border: 1px solid var(--line); border-radius: 36px; padding: 56px; display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; box-shadow: var(--shadow-soft); }
+    .cta-box h2 { font-size: clamp(30px, 4vw, 50px); line-height: 1.04; color: var(--navy); letter-spacing: -1.2px; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); font-size: 17px; max-width: 740px; }
+    footer { background: #122a37; color: rgba(255,255,255,0.82); padding: 38px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-brand strong { display: block; color: var(--white); margin-bottom: 4px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 1150px) {
+      .nav { flex-wrap: wrap; justify-content: center; padding: 18px 0; }
+      .nav-right { flex-direction: column; }
+      .section-head, .location-grid, .cta-box { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 860px) {
+      nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
+      .dropdown-menu { left: 0; transform: none; }
+      .hero { min-height: auto; }
+      .hero-inner { padding: 80px 0; }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      .topbar-inner, .footer-inner { align-items: flex-start; }
+      .logo-text strong { font-size: 16px; }
+      .nav { min-height: auto; }
+      .nav-right { width: 100%; }
+      nav ul { width: 100%; justify-content: flex-start; }
+      .phone-button { width: 100%; justify-content: center; }
+      .hero h1 { font-size: 38px; }
+      .hero p, .section-head p, .cta-box p { font-size: 16px; }
+      section { padding: 82px 0; }
+      .hours-grid { grid-template-columns: 1fr; }
+      .info-card, .cta-box { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-group">
+        <span>Hamburg · Branstücken 23, 22549 Hamburg</span>
+        <span>Mo–Fr 7–18 Uhr · Sa 7–13 Uhr</span>
+      </div>
+      <div class="topbar-group">
+        <a href="mailto:info@textilpflege-fixundfertig.de">info@textilpflege-fixundfertig.de</a>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">
+        <div class="logo-mark">FF</div>
+        <div class="logo-text">
+          <strong>Textilpflege Fix & Fertig GmbH</strong>
+          <span>Professionelle Textilpflege in Hamburg</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <nav>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li class="dropdown">
+              <button class="dropdown-toggle" type="button">Geschäftsfelder ▾</button>
+              <div class="dropdown-menu">
+                <a href="geschaeftskunden.html">Geschäftskunden<span>Textilservice für Praxen, Hotels und Gastronomie</span></a>
+                <a href="privatkunden.html">Privatkunden<span>Einfach saubere Wäsche ohne Aufwand</span></a>
+                <a href="service.html">Abhol- &amp; Lieferservice<span>Bequemer Service mit klaren Abläufen</span></a>
+                <a class="active" href="standort.html">Standort<span>Alle Infos zu Adresse, Kontakt und Öffnungszeiten</span></a>
+              </div>
+            </li>
+            <li><a href="service.html">Service</a></li>
+            <li><a class="active" href="standort.html">Standort</a></li>
+            <li><a href="mailto:info@textilpflege-fixundfertig.de">Kontakt</a></li>
+          </ul>
+        </nav>
+        <a class="phone-button" href="tel:04043282373">
+          <span class="phone-icon">☎</span>
+          <span class="phone-text"><small>Rufen Sie uns an</small><strong>040 43282373</strong></span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Standort</div>
+          <h1>Ihr Textilservice in Hamburg.</h1>
+          <p>Besuchen Sie uns vor Ort oder nutzen Sie unseren Service bequem für Ihr Unternehmen oder Ihren privaten Bedarf. Alle wichtigen Informationen finden Sie direkt hier.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Branst%C3%BCcken+23,+22549+Hamburg" target="_blank" rel="noopener">In Google Maps öffnen</a>
+            <a class="btn btn-secondary" href="#kontaktinfos">Kontaktinfos ansehen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="kontaktinfos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">Standort-Informationen</span>
+            <h2>Alle wichtigen Infos auf einen Blick.</h2>
+          </div>
+          <p>Eine starke Standort-Seite zeigt Adresse, Kontakt und Öffnungszeiten direkt und übersichtlich. Genau so ist diese Seite aufgebaut – klar, praktisch und seriös.</p>
+        </div>
+        <div class="location-grid">
+          <div class="info-card">
+            <h3>Textilpflege Fix &amp; Fertig GmbH</h3>
+            <div class="info-item"><strong>Adresse</strong>Branstücken 23<br />22549 Hamburg</div>
+            <div class="info-item"><strong>Telefon</strong><a href="tel:04043282373">040 43282373</a></div>
+            <div class="info-item"><strong>E-Mail</strong><a href="mailto:info@textilpflege-fixundfertig.de">info@textilpflege-fixundfertig.de</a></div>
+            <div class="info-item"><strong>Öffnungszeiten</strong>Mo–Fr 07:00–18:00 Uhr<br />Sa 07:00–13:00 Uhr</div>
+            <a class="btn btn-primary" href="tel:04043282373">Jetzt anrufen</a>
+          </div>
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps?q=Branst%C3%BCcken%2023,%2022549%20Hamburg&z=15&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Google Maps - Textilpflege Fix & Fertig GmbH"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="intro">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">Öffnungszeiten & Kontakt</span>
+            <h2>Einfach erreichbar und klar organisiert.</h2>
+          </div>
+          <p>Auch hier gilt: Eine gute Standort-Seite soll Vertrauen schaffen. Deshalb sind Erreichbarkeit, Öffnungszeiten und Kontaktwege noch einmal extra sichtbar hervorgehoben.</p>
+        </div>
+        <div class="hours-grid">
+          <div class="hours-card"><h3>Öffnungszeiten</h3><p>Montag bis Freitag: 07:00 – 18:00 Uhr<br />Samstag: 07:00 – 13:00 Uhr</p></div>
+          <div class="hours-card"><h3>Kontakt</h3><p>Telefon: 040 43282373<br />E-Mail: info@textilpflege-fixundfertig.de</p></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Sie möchten uns direkt erreichen oder vorbeikommen?</h2>
+            <p>Dann rufen Sie uns an, schreiben Sie uns eine E-Mail oder öffnen Sie direkt die Route in Google Maps.</p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="mailto:info@textilpflege-fixundfertig.de">Jetzt Kontakt aufnehmen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><strong>Textilpflege Fix &amp; Fertig GmbH</strong><span>Branstücken 23, 22549 Hamburg</span></div>
+      <div class="footer-links">
+        <a href="tel:04043282373">040 43282373</a>
+        <a href="mailto:info@textilpflege-fixundfertig.de">info@textilpflege-fixundfertig.de</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
